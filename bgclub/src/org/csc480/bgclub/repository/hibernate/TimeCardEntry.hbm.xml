@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.csc480.bgclub.domain.TimeCardEntry"  table="TIMECARD">
+        <id name="timeCardId" type="integer">
+            <column name="TIMECARD_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="employeeId" type="integer">
+            <column name="EMPLOYEE_ID" not-null="true" />
+        </property>
+        <property name="clockinTm" type="timestamp">
+            <column name="CLOCKIN_TM" not-null="true" />
+        </property>
+        <property name="clockoutTm" type="timestamp">
+            <column name="CLOCKOUT_TM" not-null="false" />
+        </property>
+        <property name="minutes" type="integer">
+            <column name="MINUTES" not-null="false" />
+        </property>
+    </class>
+</hibernate-mapping>

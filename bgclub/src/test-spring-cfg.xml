@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+   		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+   		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+   		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+
+    <bean id="employeeDao" class="org.csc480.bgclub.repository.EmployeeDaoMemory" />
+    <bean id="timeCardDao" class="org.csc480.bgclub.repository.TimeCardDaoMemory" />
+
+     
+    <bean id="employeeManager" class="org.csc480.bgclub.service.EmployeeManager">
+       <property name="employeeDao">
+           <ref bean="employeeDao"/>
+       </property>
+       <property name="timeCardDao">
+           <ref bean="timeCardDao"/>
+       </property>
+    </bean>
+ 
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+       <property name="dataSource">
+       		<ref bean="dataSource"/>
+       </property>
+		<property name="configLocation">
+			<value>hibernate.cfg.xml</value>
+		</property>
+		<property name="configurationClass">
+			<value>org.hibernate.cfg.AnnotationConfiguration</value>
+		</property>
+    </bean>
+  
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      	<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://localhost:3306/csc480</value>
+		</property>
+		<property name="username">
+			<value>csc480</value>
+		</property>
+		<property name="password">
+			<value>csc480!</value>
+		</property>
+    </bean>
+    
+
+    <bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+       <property name="sessionFactory"><ref local="sessionFactory"/></property>
+    </bean>
+    
+	  <!-- ensure that the above transactional advice runs for any execution
+      of an operation defined by the FooService interface -->
+	<aop:config>
+		<aop:pointcut id="employeeDaoOperation" expression="execution(* org.csc480.bgclub.repository.EmployeeDaoHibernate.*(..))"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="employeeDaoOperation"/>
+ 	</aop:config>
+
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true"/>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>	
+</beans>

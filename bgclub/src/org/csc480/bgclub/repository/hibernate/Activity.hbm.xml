@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="org.csc480.bgclub.domain.Activity"  table="ACTIVITY">
+        <id name="activityId" type="integer">
+            <column name="ACTIVITY_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="100" not-null="true" unique="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
