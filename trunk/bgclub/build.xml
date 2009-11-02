@@ -1,0 +1,35 @@
+<?xml version="1.0" ?> 
+<project name="bgclub" default="compress">
+
+	<property name="root.dir" location="." />
+    <property name="lib.dir" location="${root.dir}/WebContent/WEB-INF/lib" />
+
+    <path id="default.classpath">
+        <fileset dir="${lib.dir}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+    	
+	<target name="init">
+		<mkdir dir="build/classes" />
+		<mkdir dir="dist" />
+	</target>
+
+	<target name="compile" depends="init">
+    	<javac debug="true" deprecation="true" srcdir="src" destdir="build/classes">
+			<classpath refid="default.classpath"/>
+		</javac>
+		<copydir dest="build/classes/org/csc480/bgclub/repository/hibernate" src="src/org/csc480/bgclub/repository/hibernate">
+		</copydir>
+	</target>
+	
+	<target name="compress" depends="compile">
+		<jar destfile="dist/bgclub.jar" basedir="build/classes" />
+	</target>
+	
+	<target name="clean">
+		<delete dir="build" />
+		<delete dir="dist" />
+	</target>
+	
+</project>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="org.csc480.bgclub.domain.MedicalCondition"  table="MEMBER_CONDITION">
+        <id name="medicalConditionId" type="integer">
+            <column name="CONDITION_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="100" not-null="true" />
+        </property>
+        <property name="notes" type="string">
+            <column name="NOTES" length="2147483647" not-null="false" />
+        </property>
+        <many-to-one name="parent" class="org.csc480.bgclub.domain.Member" column="MEMBER_ID"  not-null="true" />
+    </class>
+</hibernate-mapping>

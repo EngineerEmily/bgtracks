@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+
+
+	<class name="org.csc480.bgclub.domain.Member" table="MEMBER">
+		<id name="memberId" type="integer">
+			<column name="MEMBER_ID" />
+			<generator class="identity" />
+		</id>
+
+		<property name="siteId" type="integer">
+			<column name="SITE_ID" />
+		</property>
+		<property name="prefix" type="string">
+			<column name="PREFIX" length="4" not-null="false" />
+		</property>
+		<property name="firstName" type="string">
+			<column name="FIRST_NAME" length="64" not-null="false" />
+		</property>
+		<property name="lastName" type="string">
+			<column name="LAST_NAME" length="64" not-null="false" />
+		</property>
+		<property name="middleName" type="string">
+			<column name="MIDDLE_NAME" length="64" not-null="false" />
+		</property>
+		<property name="nickName" type="string">
+			<column name="NICK_NAME" length="64" not-null="false" />
+		</property>
+		<property name="suffix" type="string">
+			<column name="SUFFIX" length="64" not-null="false" />
+		</property>
+		<property name="birthDate" type="date">
+			<column name="BIRTH_DT" not-null="false" />
+		</property>
+		<property name="sex" type="sex">
+			<column name="SEX" length="10" not-null="false" />
+		</property>
+		<property name="ethnicityCd" type="string">
+			<column name="ETHNICITY" length="64" not-null="false" />
+		</property>
+		<property name="homePhone" type="string">
+			<column name="HOME_PHONE" length="64" not-null="false" />
+		</property>
+		<property name="cellPhone" type="string">
+			<column name="CELL_PHONE" length="64" not-null="false" />
+		</property>
+		<property name="workPhone" type="string">
+			<column name="WORK_PHONE" length="64" not-null="false" />
+		</property>
+		<property name="email" type="string">
+			<column name="EMAIL" length="100" not-null="false" />
+		</property>
+		<property name="address1" type="string">
+			<column name="ADDRESS1" length="150" not-null="false" />
+		</property>
+		<property name="address2" type="string">
+			<column name="ADDRESS2" length="150" not-null="false" />
+		</property>
+		<property name="city" type="string">
+			<column name="CITY" length="100" not-null="false" />
+		</property>
+		<property name="state" type="string">
+			<column name="STATE" length="2" not-null="false" />
+		</property>
+		<property name="zip" type="string">
+			<column name="ZIP" length="10" not-null="false" />
+		</property>
+		<property name="startDt" type="date">
+			<column name="START_DT" not-null="true" />
+		</property>
+		<property name="terminationDt" type="date">
+			<column name="TERMINATION_DT" not-null="false" />
+		</property>
+		<property name="schoolCd" type="string">
+			<column name="SCHOOL" length="100" not-null="false" />
+		</property>
+		<property name="gradeLevelCd" type="string">
+			<column name="GRADE_LEVEL" length="100" not-null="false" />
+		</property>
+		<property name="teacherName" type="string">
+			<column name="TEACHER" length="100" not-null="false" />
+		</property>
+		<property name="doctorName" type="string">
+			<column name="DOCTOR" length="100" not-null="false" />
+		</property>
+		<property name="doctorPhone" type="string">
+			<column name="DOCTOR_PHONE" length="45" not-null="false" />
+		</property>
+		<property name="insured" type="boolean">
+			<column name="INSURED" not-null="false" />
+		</property>
+		<property name="insuranceGroupNumber" type="string">
+			<column name="INSURANCE_GROUP_NUM" length="45" not-null="false" />
+		</property>
+		<property name="insuranceMemberNumber" type="string">
+			<column name="INSURANCE_MEMBER_NUM" length="45" not-null="false" />
+		</property>
+		<property name="primaryLanguageCd" type="string">
+			<column name="PRIMARY_LANGUAGE" length="45" not-null="false" />
+		</property>
+		<property name="singleParentHousehold" type="boolean">
+			<column name="SINGLE_PARENT_HOUSEHOLD" not-null="false" />
+		</property>
+		<property name="militaryChild" type="boolean">
+			<column name="MILITARY_CHILD" not-null="false" />
+		</property>
+		<set name="guardianRefs" table="MEMBER_GUARDIAN_REF" lazy="false"
+			cascade="all" inverse="true">
+			<key column="MEMBER_ID" />
+			<one-to-many class="org.csc480.bgclub.domain.GuardianRef" />
+		</set>
+		<set name="medications" table="MEMBER_MEDICATION" lazy="false"
+			cascade="all" inverse="true">
+			<key column="MEMBER_ID" />
+			<one-to-many class="org.csc480.bgclub.domain.Medication" />
+		</set>
+		<set name="conditions" table="MEMBER_CONDITION" lazy="false"
+			cascade="all" inverse="true">
+			<key column="MEMBER_ID" />
+			<one-to-many class="org.csc480.bgclub.domain.MedicalCondition" />
+		</set>
+		<set name="contacts" table="MEMBER_CONTACT" lazy="false" cascade="all"
+			inverse="true">
+			<key column="MEMBER_ID" />
+			<one-to-many class="org.csc480.bgclub.domain.EmergencyContact" />
+		</set>
+	</class>
+</hibernate-mapping>

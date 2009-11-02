@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.csc480.bgclub.domain.ActivityLogEntry"  table="ACTIVITY_LOG">
+        <id name="activityLogId" type="integer">
+            <column name="ACTIVITY_LOG_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="siteId" type="integer">
+            <column name="SITE_ID" not-null="true" />
+        </property>
+        <property name="activityId" type="integer">
+            <column name="ACTIVITY_ID" not-null="true" />
+        </property>
+        <property name="memberId" type="integer">
+            <column name="MEMBER_ID" not-null="true" />
+        </property>
+        <property name="checkinTm" type="timestamp">
+            <column name="CHECKIN_TM" not-null="true" />
+        </property>
+        <property name="checkoutTm" type="timestamp">
+            <column name="CHECKOUT_TM" not-null="false" />
+        </property>
+    </class>
+</hibernate-mapping>
