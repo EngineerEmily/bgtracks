@@ -1,0 +1,202 @@
+td{
+  vertical-align:text-top;
+}
+
+p{
+  margin:5px 0px;
+}
+#topsection .innertube table{
+width:100%;
+}
+.jump-nav{
+width:260px;
+
+}
+
+
+#main-content{
+  width:100%;
+}
+
+#accordion h3{
+  font-size:140%;
+  padding-bottom:3px;
+  margin-bottom:0px;
+  -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px;
+}
+
+.ui-accordion .ui-accordion-header a { 
+  display: block; 
+  font-size: 1em; 
+  padding: .1em .1em .1em 1.4em; 
+}
+
+#accordion td{
+  font-size:.8em;
+}
+
+td.tdFormLeft{
+  text-align:left;
+  width:8.2em;
+}
+
+td.tdFormSubmit{
+  text-align:left;  
+}
+
+#multipleField td{
+  padding-right:3px;
+  padding-bottom:3px;
+}
+
+#ui-datepicker-div{
+z-index:9999;	
+}
+
+/*
+ *.block h3 may or may not be used.
+ * I am leaving the styles here if needed in the future.
+ *
+.block h3{
+  color:#FFF;
+  margin:-5px -11px 0px -11px;
+  padding:3px 3px 7px 10px;
+  background:#2B69A8 url(jqueryui/images/ui-bg_glass_65_2b69a8_1x400.png) repeat-x scroll 50% 50%;
+  -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px;
+  border:1px solid #AAA;
+  border-bottom:none;
+  font-size:140%;
+  font-weight:normal;
+
+}
+*/
+
+
+/*
+ * Left column navigation styles
+ * These styles will apply to any list in any block.
+ * This may be too broad, and might be refined.
+ */
+.block ul{
+  margin:-3px -11px 0px -11px;
+  padding:0px;
+}
+
+.block ul li{
+  margin-bottom:3px;
+  list-style-type:none;
+  background:#6398CE url(jqueryui/images/ui-bg_glass_75_6398ce_1x400.png) repeat-x scroll 50% 50%;
+  margin-left:0px;
+  font-size:1.4em;
+  border:1px solid #AAA;
+  -moz-border-radius: 4px; -webkit-border-radius: 4px;
+}
+
+.block ul li:hover{
+  border: 1px solid #999999; 
+  background: #aeccea url(jqueryui/images/ui-bg_glass_75_aeccea_1x400.png) 50% 50% repeat-x;  
+  color: #212121; 
+}
+
+.block ul a{
+  -moz-border-radius: 4px; -webkit-border-radius: 4px;
+  min-height:56px;
+  color:#FFF;
+  display:block;
+  text-decoration:none;
+  padding-top:10px;
+  padding-left:70px;
+}
+
+.block ul a:hover{
+  color:#222;
+}
+
+.block ul a span{
+  font-size:.6em;
+  margin:0px;
+  padding:0px;
+  line-height:1em;
+}
+
+/*
+ *Navigation CSS Sprite offsets
+ */
+#navigation ul a, .jump-nav ul a{
+  background: url("../images/icons/sprite.png") no-repeat;
+}
+
+
+li#menu-home a{
+  background-position: 10px -218px ;
+}
+li#menu-configure a{
+  background-position: 10px -330px ;
+}
+li#menu-reports a{
+  background-position: 10px 10px ;
+}
+li#menu-logout a{
+  background-position: 10px -105px ;
+}
+li#menu-firedrillreport a{
+  background-position: 10px -442px ;
+}
+/* End Sprite offsets */
+.jump-nav div {
+width: 95%;
+text-align:left;
+}
+.jump-nav div a{
+min-height:59px; 
+}
+
+.table-header{
+  font-weight:bold;
+}
+
+.ui-dialog-content{
+  font-size:.8em;
+}
+.ui-dialog-content td{
+  padding-left:5px;
+  padding-right:5px;
+}
+
+.odd{
+  background:#EEE;
+}
+
+
+.tabs a.utility-link{
+	  margin-bottom:3px;
+
+  background:#6398CE url(jqueryui/images/ui-bg_glass_75_6398ce_1x400.png) repeat-x scroll 50% 50%;
+  padding:2px 5px 2px 5px;
+  margin-left:5px;
+  border:1px solid #AAA;
+  -moz-border-radius: 4px; -webkit-border-radius: 4px;
+  color:#FFFFFF;
+  font-size:.9em;
+  text-decoration:none;
+	
+	}
+.tabs a.utility-link:hover{
+	  border: 1px solid #999999; 
+  background: #aeccea url(jqueryui/images/ui-bg_glass_75_aeccea_1x400.png) 50% 50% repeat-x;  
+  color: #212121; 
+}
+/*
+ * The following styles are here for reference.
+ * They will be deleted before the release.
+ *
+.ui-corner-tl { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; }
+.ui-corner-tr { -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; }
+.ui-corner-bl { -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px; }
+.ui-corner-br { -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; }
+.ui-corner-top { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; }
+.ui-corner-bottom { -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px; -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; }
+.ui-corner-right {  -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; }
+.ui-corner-left { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px; }
+.ui-corner-all { -moz-border-radius: 4px; -webkit-border-radius: 4px; }
+*/
