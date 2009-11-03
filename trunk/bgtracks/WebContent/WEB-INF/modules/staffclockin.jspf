@@ -1,0 +1,50 @@
+<h3 class="ui-accordion-header ui-state-default ui-corner-top"><a
+	href="#Staff" title="Staff">Staff clock-in</a></h3>
+<div title="Staff" id="Staff"
+	class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content-active">
+
+<form action="#">
+<table>
+	<tr>
+		<td class="tdFormLeft">
+		<p>Site:</p>
+		</td>
+		<td class="tdFormRight">
+		<p><select name="unit">
+	<%@ include file="units.jspf" %>  
+		</select></p>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdFormLeft">
+		<p>Staff ID Number:</p>
+		</td>
+		<td>
+		<p><input type="text" name="staffID" id="txtStaffID" size="5"
+			onkeyup="loadEmployeeIdData();;"
+/></p>
+		</td>
+	</tr>
+</table>
+</form>
+<table>
+	<tr>
+		<td class="tdFormLeft"></td>
+		<td class="tdFormRight">
+		<p>
+		<button onclick="
+	checkInUser();;;;"
+name="staffClockIn">Clock In</button>
+		<button onclick="
+	checkOutUser();;;;"
+name="staffClockOut">Clock
+		Out</button>
+		</p>
+		</td>
+	</tr>
+</table>
+
+<script type="text/javascript" src="js/modules/staffclockin.js">
+
+</script></div>
+

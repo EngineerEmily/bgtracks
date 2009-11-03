@@ -1,0 +1,71 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<form id="frmNewUser"  method="post" action="">
+<div class="createNewUser" title="Create New User"
+	style="display: none;">
+<input type="hidden" id="hfUserId"/>
+<table width="100%">
+	<tr>
+		<td class="tdFormLeft" style="width: 200px">
+		<p>User Name:</p>
+		</td>
+		<td class="tdFormRight">
+		<p><input type="text" id="txtUserUserName" name="userName" class='validate[required,length[0,300]] text-input'
+			size="10" /></p>
+		</td>
+		<td class="tdFormLeft" style="width: 200px">
+		<p>Login Enabled:</p>
+		</td>
+		<td class="tdFormRight" colspan="3">
+		<p><input type="checkbox" id="cbLoginEnabled" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdFormLeft" style="width: 200px">
+		<p>First Name:</p>
+		</td>
+		<td class="tdFormRight">
+		<p><input type="text" id="txtUserFirstName" name="firstName" class='validate[required,length[0,300]] text-input'
+			size="10" /></p>
+		</td>
+		<td class="tdFormLeft">
+		<p>Last Name:</p>
+		</td>
+		<td class="tdFormRight">
+		<p><input type="text" id="txtUserLastName" name="lastName" class='validate[required,length[0,300]] text-input'
+			size="10" /></p>
+
+		</td>
+	</tr>
+	<tr>
+
+		<td class="tdFormLeft">
+		<p>Password:</p>
+		</td>
+		<td class="tdFormRight">
+		<p><input type="password" id="txtUserPassword" name="lastName" class='validate[length[6,255]] text-input'
+			size="10" /></p>
+		</td>
+		<td class="tdFormLeft">
+		<p>Confirm:</p>
+		</td>
+		<td class="tdFormRight" colspan="3">
+		<p><input type="password" id="txtUserConfirmPassword" class='validate[passwordConfirm[txtUserPassword],length[6,255]] text-input'
+			name="lastName" size="10" /></p>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="tdFormLeft">
+		<p>Email:</p>
+		</td>
+		<td class="tdFormRight" colspan="3">
+		<p><input type="text" id="txtUserEmail" size="30" class='validate[email,required,length[0,300]] text-input'/></p>
+		</td>
+
+	</tr>
+
+</table>
+</div>
+</form>

@@ -1,0 +1,105 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%
+	String reportsArray[] = { "BGCA Annual Report",
+			"Weekly Attendance Report" };
+%>
+<h3 class="ui-accordion-header ui-state-default ui-corner-top"><a
+	href="#Reports" title="Reports" class="ui-accordion-header">Reports</a></h3>
+<div
+	class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content-active">
+<form id="reportSelection" action="#" method="post">
+<table>
+	<tr>
+		<td class="tdFormLeft">
+		<p>Report:</p>
+		</td>
+		<td class="tdFormRight">
+		<p><select name="report">
+			<c:forEach items="${reports}" var='report'>
+			<option value="${report}">${report}</option>
+			</c:forEach>
+		</select></p>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdFormLeft">
+		<p>Site:</p>
+		</td>
+		<td class="tdFormRight">
+		<p><select name="unit">
+			<%@ include file="units.jspf"%>
+		</select></p>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdFormLeft">
+		<p>Activity:</p>
+		</td>
+		<td class="tdFormRight">
+		<p><select>
+			<option value="1">General Attendance</option>
+			<option value="2">Power Hour</option>
+			<option value="12">Smart Girls</option>
+		</select></p>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdFormLeft">
+		<p>Scan at:</p>
+		</td>
+		<td class="tdFormRight">
+		<p><input type="radio" name="time" value="currTime"
+			checked="checked" />Current Time <input type="radio" name="time"
+			value="exactTime" />Exact Time</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdFormLeft">
+		<p class="currTime">Current Time:</p>
+		<p class="exactTime">Exact Time:</p>
+		<p class="exactTime">Date:</p>
+		</td>
+		<td class="tdFormRight">
+		<p class="currTime"><input type="text" name="currTimeField"
+			size="19" value="<%=new java.util.Date()%>" readonly="readonly" />
+		</p>
+		<p class="exactTime"><input type="text" name="exactTimeField"
+			size="10" value="2:00pm" /></p>
+		<p class="exactTime"><input type="text" name="exactTimeDateField"
+			size="10" value="08/23/2009" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdFormLeft">
+		<p>Membership Number:</p>
+		</td>
+		<td class="tdFormRight">
+		<p><input type="text" name="memberID" size="5" /></p>
+		</td>
+	</tr>
+	<!-- <tr>
+                     <td class="tdFormSubmit"></td>
+                     <td class="tdFormRight"><p><input type="submit" name="singularCheckIn" value="Check in" /> <input type="submit" name="singularCheckOut" value="Check out" /></p></td>
+                     </tr> -->
+
+</table>
+</form>
+<table>
+	<tr>
+		<td class="tdFormLeft"></td>
+		<td class="tdFormRight">
+		<p>
+		<button name="singularCheckIn">Check In</button>
+		<button name="SingularCheckOut">Check Out</button>
+		</p>
+		</td>
+	</tr>
+</table>
+<div style="display: none;" id="checkInDialog1" title="Check In">
+<p>Stephen Stark (4334) will be checked into General Attendance at <%=new java.util.Date()%>
+</p>
+</div>
+</div>

@@ -1,0 +1,72 @@
+              <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+               
+<%@page import="org.csc480.projectsite.web.dataaccess.*"%>
+<%@page import="org.csc480.bgclub.domain.Activity" %>
+<%@page import="java.util.List" %>
+<h3 class="ui-accordion-header ui-state-default ui-corner-top" ><a href="#Activity" title="Activity" class="ui-accordion-header">Activity check-in</a></h3>
+               <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content-active">
+                 <form id="singularCheckInForm" action="#" method="post">
+                   <table>
+                     <tr>
+                       <td class="tdFormLeft"><p>Site:</p></td>
+                       <td class="tdFormRight">
+                         <p>
+                           <select id="singleMemberUnit" name="unit">
+                            <%@ include file="units.jspf" %>  
+                           </select>  
+                                          
+                         </p>
+                       </td>
+                     </tr>
+                     <tr>
+                     <td class="tdFormLeft"><p>Activity: </p></td>
+                       <td class="tdFormRight">
+                         <p>
+                           <select id="singleMemberActivity" name="activity">
+                           <%@ include file="activities.jspf" %>
+                           </select>
+
+                         </p>
+                       </td>
+                     </tr>
+                     <tr>
+                       <td class="tdFormLeft"><p>Scan at:</p></td>
+                       <td class="tdFormRight">
+                         <p>
+                           <input type="radio" name="time" value="currTime" checked="checked" />Current Time
+                           <input type="radio" name="time" value="exactTime"  />Exact Time  
+                         </p>
+                       </td>
+                     </tr>  
+                     <tr>
+                       <td class="tdFormLeft">              
+                         
+                         <p class="exactTime">Exact Time:</p>
+                         <p class="exactTime">Date:</p>
+                       </td>
+                       <td class="tdFormRight">                  
+                        <p class="exactTime">
+                          <input type="text" name="exactTimeField" class="time-mask"  size="10" />
+                        </p>
+                        <p class="exactTime">
+                          <input type="text" class="datepicker" name="exactTimeDateField" size="10"  />
+                        </p>
+                      </td>
+                   </tr>
+                   <tr>
+                     <td class="tdFormLeft"><p>Membership Number: </p></td>
+                     <td class="tdFormRight"><p><input id="singleMemberNumber" type="text" name="memberID" size="5" /></p></td>
+                   </tr>
+
+                   </table>
+                 </form>
+                 <table>
+                 <tr><td class="tdFormLeft"></td><td class="tdFormRight"><p><button name="singularCheckIn" onclick="checkInMember();;" >Check In</button> <button name="SingularCheckOut" onclick="checkOutMember();;">Check Out</button></p></td></tr>
+                 </table>
+                 
+                 <script type="text/javascript" src="js/modules/activitycheckin.js">
+                 
+                 </script>
+                 </div>

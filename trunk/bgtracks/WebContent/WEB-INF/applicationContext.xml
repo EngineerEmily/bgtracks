@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- REGISTER HIBERNATE MAPPING FILE -->
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://localhost:3306/CSC480</value>
+		</property>
+		<property name="username">
+			<value>csc480</value>
+		</property>
+		<property name="password">
+			<value>csc480!</value>
+		</property>
+	</bean>
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation">
+			<value>WEB-INF/hibernate.cfg.xml</value>
+		</property>
+		<property name="configurationClass">
+			<value>org.hibernate.cfg.AnnotationConfiguration
+			</value>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+			</prop>
+			</props>
+		</property>
+	</bean>
+
+    <bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+    	<property name="sessionFactory">
+       		<ref local="sessionFactory"/>
+       	</property>
+    </bean>
+    
+	<!--  REGISTER DATA ACCESS OBJECTS -->
+	<bean id="passwordEncoder"
+		class="org.springframework.security.providers.encoding.ShaPasswordEncoder">
+		<constructor-arg value="256" />
+	</bean>
+
+	<bean id="UserDetailAccessBean" class="org.csc480.projectsite.web.dataaccess.UserDetailAccess">
+		<property name="sessionFactory" ref="sessionFactory"></property>		
+	</bean>	
+
+	<bean id="DataAccessBean" class="org.csc480.projectsite.web.dataaccess.DataAccessPoint">
+		<property name="userDetailAccess" ref="UserDetailAccessBean"></property>
+		<property name="memberManagerAccess" ref="memberManager"></property>
+		<property name="employeeManagerAccess" ref="employeeManager"></property>
+		<property name="siteManagerAccess" ref="siteManager"></property>
+		<property name="activityManagerAccess" ref="activityManager"></property>
+		<property name="guardianManagerAccess" ref="guardianManager"></property>		
+	</bean>
+	
+    <!-- Services -->
+	<bean id="checkInService" class="org.nucsc480.projectsite.web.service.CheckInService" >
+    </bean>
+    
+ 
+ 
+ <!--  DAOs -->
+    <bean id="memberDao" class="org.csc480.bgclub.repository.MemberDaoHibernate">
+       <property name="sessionFactory">
+           <ref bean="sessionFactory"/>
+       </property>
+    </bean>
+
+    <bean id="activityDao" class="org.csc480.bgclub.repository.ActivityDaoHibernate">
+       <property name="sessionFactory">
+           <ref bean="sessionFactory"/>
+       </property>
+    </bean>
+
+    <bean id="activityLogDao" class="org.csc480.bgclub.repository.ActivityLogDaoHibernate">
+       <property name="sessionFactory">
+           <ref bean="sessionFactory"/>
+       </property>
+    </bean>
+
+    <bean id="siteDao" class="org.csc480.bgclub.repository.SiteDaoHibernate">
+       <property name="sessionFactory">
+           <ref bean="sessionFactory"/>
+       </property>
+    </bean>
+
+    <bean id="guardianDao" class="org.csc480.bgclub.repository.GuardianDaoHibernate">
+       <property name="sessionFactory">
+           <ref bean="sessionFactory"/>
+       </property>
+    </bean>
+    
+    <bean id="employeeDao" class="org.csc480.bgclub.repository.EmployeeDaoHibernate">
+       <property name="sessionFactory">
+           <ref bean="sessionFactory"/>
+       </property>
+    </bean>
+    
+    <bean id="timeCardDao" class="org.csc480.bgclub.repository.TimeCardDaoHibernate" >
+       <property name="sessionFactory">
+           <ref bean="sessionFactory"/>
+       </property>    
+    </bean>
+
+	<!-- Managers -->
+	<bean id="memberManager" class="org.csc480.bgclub.service.MemberManager">
+       <property name="memberDao">
+           <ref bean="memberDao"/>
+       </property>
+    </bean>
+       
+       
+    <bean id="employeeManager" class="org.csc480.bgclub.service.EmployeeManager">
+       <property name="employeeDao">
+           <ref bean="employeeDao"/>
+       </property>
+       <property name="timeCardDao">
+           <ref bean="timeCardDao"/>
+       </property>
+    </bean>
+       
+    <bean id="guardianManager" class="org.csc480.bgclub.service.GuardianManager">
+       <property name="guardianDao">
+           <ref bean="guardianDao"/>
+       </property>
+    </bean>
+
+    <bean id="siteManager" class="org.csc480.bgclub.service.SiteManager">
+       <property name="siteDao">
+           <ref bean="siteDao"/>
+       </property>
+    </bean>
+        
+    <bean id="activityManager" class="org.csc480.bgclub.service.ActivityManager">
+       <property name="activityDao">
+           <ref bean="activityDao"/>
+       </property>
+       <property name="activityLogDao">
+           <ref bean="activityLogDao"/>
+       </property>
+    </bean>        
+
+   	
+</beans>

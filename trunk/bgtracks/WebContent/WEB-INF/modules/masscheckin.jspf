@@ -1,0 +1,86 @@
+               <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+               <h3 title="Mass" class="ui-accordion-header ui-state-default ui-corner-top"><a href="#Mass" title="Mass" >Mass check-in</a></h3>
+               <div title="Mass" id="Mass" class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content-active">
+                 <form id="massCheckInForm" action="#" method="post">
+                <table>
+                <tr>
+                <td class="tdFormLeft">
+                <p>
+                   Site:
+                   </p>
+                   </td>
+                   <td class="tdFormRight">
+                   <p>
+                   <select id="massUnit" name="unit">
+                   <%@ include file="units.jspf" %> 
+                   </select>                  
+                        
+                   </p>
+                   </td>
+                   </tr>
+                   <tr>
+                   <td class="tdFormLeft"><p>Activity: </p></td>
+                   <td class="tdFormRight"><p>
+                   <select id="massActivity" name="activity">
+                    
+                   <%@ include file="activities.jspf" %>
+                   </select></p></td>
+                   </tr>
+                   <tr>
+                   <td class="tdFormLeft"><p>Scan at:</p></td>
+                   <td class="tdFormRight"><p>
+                   <input type="radio" name="massTime" value="currTime" checked="checked" />Current Time
+                   <input type="radio" name="massTime" value="exactTime"  />Exact Time  
+                   </p></td>
+                   </tr>    
+                   <tr><td class="tdFormLeft">              
+                   <p class="massExactTime">Exact Time:</p><p class="massExactTime">Date:</p>
+                   </td>
+                   <td class="tdFormRight">             
+                        <p class="massExactTime">
+                        <input type="text" class="time-mask" name="massExactTimeField" size="10" />
+                       </p>
+                       <p class="massExactTime"><input type="text" class="datepicker" name="massExactTimeDateField" size="10" value="08/23/2009" /></p>
+                       </td>
+                       </tr>
+                       <tr>
+                       <td class="tdFormLeft"><p>Membership Numbers: </p></td>
+            
+                       <td class="tdFormRight" id="massMemberID">
+                        <table cellspacing="0" cellpadding="0">
+
+                        
+                        
+
+                        <tr>
+                        <td><input type="text" name="memberID1" size="5" /></td>
+                        <td><input type="text" name="memberID2" size="5" /></td>
+                        <td><input type="text" name="memberID3" size="5" /></td>
+                        <td><input type="text" name="memberID4" size="5" /></td>
+                        <td><input type="text" name="memberID5" size="5" /></td>
+                        </tr>
+                        <tr>
+                        <td><input type="text" name="memberID6" size="5" /></td>
+                        <td><input type="text" name="memberID7" size="5" /></td>
+                        <td><input type="text" name="memberID8" size="5" /></td>
+                        <td><input type="text" name="memberID9" size="5" /></td>
+                        <td><input type="text" name="memberID10" size="5" /></td>
+                        </tr>
+                        <tr>
+                        <td><input type="text" name="memberID11" size="5" /></td>
+                        <td><input type="text" name="memberID12" size="5" /></td>
+                        <td><input type="text" name="memberIS13" size="5" /></td>
+                        <td><input type="text" name="memberID14" size="5" /></td>
+                        <td><input type="text" name="memberID15" size="5" /></td>
+                        </tr>
+                        </table>
+                        </td>
+                       </tr>
+                        </table>
+                    </form>
+                 <table>
+                 <tr><td class="tdFormLeft"></td><td class="tdFormRight"><p><button name="massCheckIn" onclick="massCheckInMember();;" >Check In</button> <button name="massCheckOut" onclick="massCheckOutMember();;">Check Out</button></p></td></tr>
+                 </table>
+<script type="text/JavaScript" src="js/modules/massactivitycheckin.js"></script>
+                </div>

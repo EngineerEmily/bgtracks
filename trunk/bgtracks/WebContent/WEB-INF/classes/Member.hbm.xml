@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.csc480.bgclub.domain.Member"  table="MEMBER">
+        <id name="memberId" type="integer">
+            <column name="MEMBER_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="prefix" type="string">
+            <column name="PREFIX" length="4" not-null="false" />
+        </property>
+        <property name="firstName" type="string">
+            <column name="FIRST_NAME" length="64" not-null="false" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="LAST_NAME" length="64" not-null="false" />
+        </property>
+        <property name="middleName" type="string">
+            <column name="MIDDLE_NAME" length="64" not-null="false" />
+        </property>
+        <property name="nickName" type="string">
+            <column name="NICK_NAME" length="64" not-null="false" />
+        </property>
+        <property name="suffix" type="string">
+            <column name="SUFFIX" length="64" not-null="false" />
+        </property>
+        <property name="birthDate" type="date">
+            <column name="BIRTH_DT" not-null="false" />
+        </property>
+        <property name="sexString" type="string">
+            <column name="SEX" length="10" not-null="false" />
+        </property>
+        <property name="ethnicityCd" type="string">
+            <column name="ETHNICITY" length="64" not-null="false" />
+        </property>
+        <property name="homePhone" type="string">
+            <column name="HOME_PHONE" length="64" not-null="false" />
+        </property>
+        <property name="cellPhone" type="string">
+            <column name="CELL_PHONE" length="64" not-null="false" />
+        </property>
+        <property name="workPhone" type="string">
+            <column name="WORK_PHONE" length="64" not-null="false" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="100" not-null="false" />
+        </property>
+        <property name="address1" type="string">
+            <column name="ADDRESS1" length="150" not-null="false" />
+        </property>
+        <property name="address2" type="string">
+            <column name="ADDRESS2" length="150" not-null="false" />
+        </property>
+        <property name="city" type="string">
+            <column name="CITY" length="100" not-null="false" />
+        </property>
+        <property name="state" type="string">
+            <column name="STATE" length="2" not-null="false" />
+        </property>
+        <property name="zip" type="string">
+            <column name="ZIP" length="10" not-null="false" />
+        </property>
+    </class>
+</hibernate-mapping>

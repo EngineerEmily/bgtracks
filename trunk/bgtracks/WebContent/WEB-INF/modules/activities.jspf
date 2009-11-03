@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@page import="org.csc480.projectsite.web.dataaccess.*"%>
+<%@page import="org.csc480.bgclub.domain.Activity" %>
+<%@page import="java.util.List" %>
+<% {List<Activity> activities = DataAccessPoint.getActivityManagerAccess().getActivities(); 
+                           	for(int i=0;i < activities.size(); i++){
+                           	Activity activity = activities.get(i);
+                           	
+                           	
+                           %>
+                           <option value="<%= activity.getActivityId() %>"><%= activity.getName() %></option>
+                           
+                           <%} }%>
