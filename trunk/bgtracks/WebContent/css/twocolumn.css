@@ -1,0 +1,66 @@
+
+body{
+	margin:0;
+	padding:15px;
+	font-family:Arial,Helvetica,sans-serif;
+	background-image:url('../images/main-bg.png');
+	background-attachment:fixed;
+}
+
+#maincontainer{
+	width: 870px; /*Width of main container*/
+	margin: 0 auto; /*Center container on page*/
+}
+
+#topsection{
+	margin-bottom:5px;
+}
+
+#topsection h1{
+	margin: 0;
+	padding: 5px 5px 5px 10px;
+}
+
+#contentwrapper{
+	float: left;
+	width: 100%;
+}
+
+#contentcolumn{
+  margin-left: 250px; /*Set left margin to LeftColumnWidth*/
+}
+
+#leftcolumn{
+	float: left;
+	width: 250px; /*Width of left column*/
+	margin-left: -869px; /*Set left margin to -(MainContainerWidth + 1)*/
+	padding-top:1px; /*Used to align into grid with the main column*/
+}
+
+#footer{
+	clear: left;
+	width: 100%;
+	color: #CCC;
+	text-align: left;
+	padding: 4px 0;
+}
+
+#footer a{
+	color: #36c;
+}
+
+#contentcolumn .innertube{
+  margin-left: 10px; /*Margins for inner DIV inside the content column (to provide padding)*/
+}
+
+#leftcolumn .innertube{
+  padding:4px 10px 0px 10px;
+  margin:0px;
+}
+
+.breadcrumbs{
+padding-left:10px;
+padding-bottom:5px;
+margin-bottom:5px;
+}
+
