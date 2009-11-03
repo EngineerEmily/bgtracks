@@ -1,0 +1,144 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<%
+	String ethnicitiesArray[] = { "African-American", "Asian",
+			"Caucasian", "Hispanic", "Multi-Racial", "Native American" };
+%>
+<form id="frmNewMember" method="post" action="">
+<div class="createNewMember" title="Create New Member:"
+	style="display: none;"><input type="hidden" id="hfMemberId" />
+<table width="100%">
+	<tr>
+		<td class="tdFormLeft" style="width: 200px">
+		<p>First Name:</p>
+		</td>
+		<td class="tdFormRight">
+		<p><input type="text" id="txtFirstName" name="firstName" size="10"
+			class='validate[required,length[0,300]] text-input' /></p>
+		</td>
+		<td class="tdFormLeft">
+		<p>Last Name:</p>
+		</td>
+		<td class="tdFormRight" colspan="3">
+		<p><input type="text" id="txtLastName" name="lastName" size="10"
+			class='validate[required,length[0,300]] text-input' /></p>
+
+		</td>
+	</tr>
+
+	<tr>
+		<td class="tdFormLeft">
+		<p>Site:</p>
+		</td>
+		<td class="tdFormRight" colspan="3">
+		<p><select id="selMemberSite" name="unit">
+			<%@ include file="units.jspf"%>
+		</select></p>
+
+		</td>
+	</tr>
+
+
+	<tr>
+		<td class="tdFormLeft">
+		<p>Date of Birth:</p>
+		</td>
+		<td class="tdFormRight">
+		<p><input type="text" id="txtBirthDate" name="dob"
+			class="datepicker" size="10" value="1994/12/03" /></p>
+		</td>
+		<td class="tdFormLeft">
+		<p>Gender:</p>
+		</td>
+		<td class="tdFormRight" colspan="4">
+		<p><input type="radio" name="rbGender" value="male" />Male <input
+			type="radio" name="rbGender" value="female" checked='checked' />Female</p>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="tdFormLeft">
+		<p>Nickname:</p>
+		</td>
+		<td class="tdFormRight">
+		<p><input type="text" id="txtNickName" name="nickname" size="10" /></p>
+		</td>
+
+		<td class="tdFormLeft">
+		<p>Ethnicity:</p>
+		</td>
+		<td class="tdFormRight">
+		<p><select id="selEthnicity" name="ethnicity">
+			<%
+				for (int i = 0; i < ethnicitiesArray.length; i++) {
+					String ethnicity = ethnicitiesArray[i];
+			%>
+			<option value="<%=ethnicity%>"><%=ethnicity%></option>
+			<%
+				}
+			%>
+		</select></p>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="tdFormLeft">
+		<p>Address:</p>
+		</td>
+		<td class="tdFormRight" colspan="3">
+		<p><input type="text" id="txtAddress1" name="address1" size="30" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdFormLeft">
+		<p>Address line 2:</p>
+		</td>
+		<td class="tdFormRight" colspan="3">
+		<p><input type="text" id="txtAddress2" name="address2" size="30" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdFormLeft">
+		<p>City:</p>
+		</td>
+		<td class="tdFormRight">
+		<p><input type="text" id="txtCity" name="city" size="10" /></p>
+		</td>
+		<td class="tdFormLeft">
+		<p>State:</p>
+		</td>
+		<td class="tdFormRight">
+		<p><input type="text" id="txtState" name="state" size="2"
+			maxlength="2" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdFormLeft">
+		<p>Zip:</p>
+		</td>
+		<td class="tdFormRight" colspan="3">
+		<p><input type="text" id="txtZip" name="zip" size="7"
+			maxlength="7" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td class="tdFormLeft">
+		<p>Home Phone:</p>
+		</td>
+		<td class="tdFormRight">
+		<p><input type="text" id="txtHomePhone" class="phone-mask"
+			name="phoneHome" size="13" /></p>
+		</td>
+		<td class="tdFormLeft" style="width: 150px">
+		<p>Cell Phone:</p>
+		</td>
+		<td class="tdFormRight">
+		<p><input type="text" id="txtCellPhone" class="phone-mask"
+			name="phoneCell" size="13" /></p>
+		</td>
+	</tr>
+
+</table>
+</div>
+</form>
